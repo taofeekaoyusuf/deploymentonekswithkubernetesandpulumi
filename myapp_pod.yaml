@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod                         # Name of the Pod
+spec:
+  containers:                             # List of containers in the Pod \
+  - name: myapp-container                 # Name of this container to be used within the Pod
+    image: myapp:v1     # Docker image to use for this container (the one we built earlier)
+    ports:
+    - containerPort: 3000                 # Port our application usee and that the container listens on 
+    # resources:
+    #   requests:
+    #     memory: "64Mi"
+    #     cpu: "250m"
+    #   limits:
+    #     memory: "128Mi"
+    #     cpu: "500m"

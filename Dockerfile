@@ -1,5 +1,5 @@
 # Base image
-FROM node:14-alpine
+FROM node:25-alpine
 
 # Working directory
 WORKDIR /app
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Start the application
-CMD ["npm", "app/app.js"]
+CMD ["node", "app/app.js"]
