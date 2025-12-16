@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mynodeapp-config                        # Name of the ConfigMap
+data:
+  MESSAGE: "Salamu Alaykum from ConfigMap!!!"   # Configuration data to be used by the application
+

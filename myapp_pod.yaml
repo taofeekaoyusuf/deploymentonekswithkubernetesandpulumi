@@ -1,13 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: myapp-pod                         # Name of the Pod
+  name: mynodeapp-pod                         # Name of the Pod
+  labels:
+    app: mynodeapp                            # Label to identify this Pod
 spec:
-  containers:                             # List of containers in the Pod \
-  - name: myapp-container                 # Name of this container to be used within the Pod
-    image: myapp:v1     # Docker image to use for this container (the one we built earlier)
+  containers:                                 # List of containers in the Pod \
+  - name: mynodeapp-container                 # Name of this container to be used within the Pod
+    image: myapp:v1.0                       # Docker image to use for this container (the one we built earlier)
     ports:
-    - containerPort: 3000                 # Port our application usee and that the container listens on 
+    - containerPort: 3000                     # Port our application usee and that the container listens on 
     # resources:
     #   requests:
     #     memory: "64Mi"

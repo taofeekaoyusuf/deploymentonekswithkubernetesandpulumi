@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mynodeapp-service               # Name of the Service
+spec:
+  selector:
+    app: mynodeapp                      # Selects Pods with the label "app: mynodeapp" to route traffic to 
+  ports:
+  - port: 80                            # Port to expose the Service on OR Port the Service will listen on
+    targetPort: 3000                    # Port on which the application is running in the Pod OR Port on the Pod to forward traffic to
+  type: LoadBalancer                    # Expose the Service via a cloud provider's load balancer making it accesible from outside the cluster

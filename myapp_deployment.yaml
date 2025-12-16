@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mynodeapp-deployment                  # Name of the Deployment
+spec:
+  replicas: 3                                 # Number of Pod replicas to run
+  selector:
+    matchLabels:
+      app: mynodeapp                          # Label to identify Pods managed by this Deployment
+  template:
+    metadata:
+      labels:
+        app: mynodeapp                        # Label to assign to Pods created by this Deployment
+    spec:
+      containers:
+      - name: mynodeapp-container             # Name of the container
+        image: myapp:v1.0                     # Docker image to use for this container
+        ports:
+        - containerPort: 3000                 # Port that the container listens on
+        env:                             # Environment variables for the container
+        - name: MESSAGE
+          valueFrom:
+            configMapKeyRef:
+              name: mynodeapp-config          # Name of the ConfigMap
+              key: MESSAGE                    # Key in the ConfigMap to use
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mynodeapp-secret          # Name of the Secret    
+              key: password                  # Key in the Secret to use
+        # - name: API_KEY
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: mynodeapp-secret          # Name of the Secret  
+        #       key: API_KEY                    # Key in the Secret to use
