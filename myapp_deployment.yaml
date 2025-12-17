@@ -17,19 +17,14 @@ spec:
         image: myapp:v1.0                     # Docker image to use for this container
         ports:
         - containerPort: 3000                 # Port that the container listens on
-        env:                             # Environment variables for the container
-        - name: MESSAGE
-          valueFrom:
-            configMapKeyRef:
-              name: mynodeapp-config          # Name of the ConfigMap
-              key: MESSAGE                    # Key in the ConfigMap to use
-        - name: PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mynodeapp-secret          # Name of the Secret    
-              key: password                  # Key in the Secret to use
+        # env:                                  # Environment variables for the container
+        # - name: MESSAGE
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: mynodeapp-config          # Name of the ConfigMap
+        #       key: MESSAGE                    # Key in the ConfigMap to use
         # - name: API_KEY
         #   valueFrom:
         #     secretKeyRef:
-        #       name: mynodeapp-secret          # Name of the Secret  
-        #       key: API_KEY                    # Key in the Secret to use
+        #       name: mynodeapp-secret          # Name of the Secret
+        #       key: API_KEY                    # Key in the Secret to use  
